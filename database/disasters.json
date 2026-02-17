@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "project": "ConfigGuardian",
+    "description": "Historical configuration disasters database for risk pattern recognition",
+    "version": "1.0",
+    "total_incidents": 3,
+    "p0_count": 3,
+    "p1_count": 0,
+    "last_updated": "2026-02-16"
+  },
+  "incidents": [
+    {
+      "incident_id": "CS-2024-001",
+      "priority": "P0",
+      "name": "CrowdStrike Falcon Kernel Driver Failure",
+      "year": 2024,
+      "company": "CrowdStrike",
+      "config_type": "kernel_driver",
+      "pattern_signature": [
+        "kernel-level configuration",
+        "global rollout",
+        "no staged deployment",
+        "memory boundary violation"
+      ],
+      "trigger": "Unsafe kernel driver configuration deployed globally",
+      "impact": {
+        "systems_affected": 8500000,
+        "downtime_hours": 6,
+        "estimated_loss_usd": 3000000000
+      },
+      "outcome": "Millions of Windows machines failed to boot",
+      "root_cause": "Kernel-level configuration change without safeguards",
+      "lessons_learned": [
+        "Kernel configs must use staged rollouts",
+        "Low-level changes need sandbox validation",
+        "Global blast radius must be assessed"
+      ],
+      "risk_score": 95
+    },
+    {
+      "incident_id": "AWS-DDB-2025-001",
+      "priority": "P0",
+      "name": "AWS DynamoDB DNS TTL Misconfiguration Outage",
+      "year": 2025,
+      "company": "Amazon Web Services",
+      "config_type": "dns_timeout",
+      "pattern_signature": [
+        "dns ttl reduction",
+        "aggressive timeout configuration",
+        "global service dependency",
+        "retry storm amplification"
+      ],
+      "trigger": "DNS TTL and client-side timeout configuration reduced aggressively",
+      "impact": {
+        "systems_affected": 1200000,
+        "downtime_hours": 3,
+        "estimated_loss_usd": 750000000
+      },
+      "outcome": "Widespread DynamoDB request failures due to DNS resolution timeouts",
+      "root_cause": "Overly aggressive DNS TTL and timeout configuration causing retry storms",
+      "lessons_learned": [
+        "DNS TTL changes must be tested under load",
+        "Timeout reductions can amplify retry storms",
+        "Global services require conservative DNS settings"
+      ],
+      "risk_score": 88
+    },
+    {
+      "incident_id": "INTEL-VMIN-2024-001",
+      "priority": "P0",
+      "name": "Intel Vmin Firmware Voltage Shift Instability",
+      "year": 2024,
+      "company": "Intel",
+      "config_type": "firmware_voltage",
+      "pattern_signature": [
+        "firmware-level configuration",
+        "voltage threshold adjustment",
+        "silent hardware instability",
+        "delayed failure manifestation"
+      ],
+      "trigger": "Firmware update modified minimum voltage thresholds (Vmin)",
+      "impact": {
+        "systems_affected": 2000000,
+        "downtime_hours": 12,
+        "estimated_loss_usd": 1200000000
+      },
+      "outcome": "Intermittent system crashes and degraded performance across affected CPUs",
+      "root_cause": "Unsafe voltage configuration introduced via firmware update",
+      "lessons_learned": [
+        "Firmware config changes require long-term stability testing",
+        "Hardware-level changes can cause delayed failures",
+        "Voltage margins should be adjusted conservatively"
+      ],
+      "risk_score": 91
+    }
+  ]
+}
